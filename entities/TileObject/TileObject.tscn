@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://7stwkwg5lx21"]
+
+[ext_resource type="Script" uid="uid://w073t5wf88vh" path="res://entities/TileObject/TileObject.gd" id="1_nnbov"]
+[ext_resource type="PackedScene" uid="uid://cvw3w16h3wvkh" path="res://models/TestChar/ModelTestChar.tscn" id="2_cnem1"]
+
+[node name="TileObject" type="CharacterBody2D" groups=["TileObject"]]
+motion_mode = 1
+script = ExtResource("1_nnbov")
+ObjectModel = ExtResource("2_cnem1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="DebugIcon" type="Polygon2D" parent="."]
+z_index = 10
+color = Color(0.350128, 0.482054, 1, 1)
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)

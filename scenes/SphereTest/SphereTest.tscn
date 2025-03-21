@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgl4ll2nweirq"]
+
+[ext_resource type="Texture2D" uid="uid://bunl4xsyrc2h7" path="res://scenes/SphereTest/FB_IMG_1725372895155.png" id="1_bhhuq"]
+[ext_resource type="Shader" uid="uid://c15xyw0dw17al" path="res://scenes/SphereTest/SphereTest.gdshader" id="1_h5x3j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8kt2x"]
+shader = ExtResource("1_h5x3j")
+shader_parameter/albedo_tex = ExtResource("1_bhhuq")
+shader_parameter/distortion = 1.0
+shader_parameter/radius = 1.0
+shader_parameter/alpha = 1.0
+shader_parameter/crop = 1.0
+shader_parameter/crop_color = Color(0, 0, 0, 1)
+
+[node name="SphereTest" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(515, 250)
+texture = ExtResource("1_bhhuq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_8kt2x")
+offset_left = 227.0
+offset_top = 40.0
+offset_right = 627.0
+offset_bottom = 440.0

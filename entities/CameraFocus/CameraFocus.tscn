@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://gj8jd5nrsiwg"]
+
+[ext_resource type="Script" uid="uid://cqnop3go13osq" path="res://entities/CameraFocus/CameraFocus.gd" id="1_ae6i0"]
+[ext_resource type="PackedScene" uid="uid://cga0gbap1aupl" path="res://entities/StateMachine/StateMachine.tscn" id="2_xw3fw"]
+[ext_resource type="Script" uid="uid://dwicij50wqjtq" path="res://entities/CameraFocus/Locked.gd" id="3_4n8hf"]
+[ext_resource type="Texture2D" uid="uid://b3jasmhu3jyr6" path="res://icons/CameraTarget.png" id="4_awrx4"]
+
+[node name="CameraFocus" type="Node3D"]
+script = ExtResource("1_ae6i0")
+
+[node name="StateMachine" parent="." instance=ExtResource("2_xw3fw")]
+InitialState = NodePath("Locked")
+
+[node name="Locked" type="Node" parent="StateMachine"]
+script = ExtResource("3_4n8hf")
+
+[node name="FocusIcon" type="Sprite3D" parent="." groups=["DebugIcon"]]
+billboard = 1
+double_sided = false
+no_depth_test = true
+texture_filter = 0
+texture = ExtResource("4_awrx4")

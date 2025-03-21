@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bltpus6u0exjf"]
+
+[ext_resource type="Script" uid="uid://dcekv55hx8kdc" path="res://entities/FogTrigger/FogTrigger.gd" id="1_fvudi"]
+
+[node name="FogTrigger" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_fvudi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

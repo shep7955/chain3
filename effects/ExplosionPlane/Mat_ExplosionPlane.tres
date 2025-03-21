@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b1ol4f2upgnpc"]
+
+[ext_resource type="Shader" path="res://effects/Billboard/BillboardRotating_unshaded.gdshader" id="1_qdxkc"]
+[ext_resource type="Texture2D" uid="uid://b7syirg1sy3vv" path="res://effects/ExplosionPlane/ExplosionPlane.png" id="2_ca7g3"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_qdxkc")
+shader_parameter/precision_multiplier = 1.0
+shader_parameter/modulate_colour = Color(1, 1, 1, 1)
+shader_parameter/uv_scale = Vector2(0.25, 0.25)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/rotation = 0.0
+shader_parameter/enable_fog = true
+shader_parameter/texture_albedo = ExtResource("2_ca7g3")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://70ipciyf48qy"]
+
+[ext_resource type="Script" uid="uid://bpntn3sjcyuj8" path="res://entities/ThirdPersonCamera/ThirdPersonCamera.gd" id="1"]
+[ext_resource type="Script" uid="uid://c62bt7568r0r0" path="res://entities/ThirdPersonCamera/Manual.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://cga0gbap1aupl" path="res://entities/StateMachine/StateMachine.tscn" id="3"]
+[ext_resource type="Script" uid="uid://mwrnhx3rhqwb" path="res://entities/ThirdPersonCamera/Reset.gd" id="4"]
+[ext_resource type="Script" uid="uid://bq2pvyqcldkvr" path="res://entities/ThirdPersonCamera/Follow.gd" id="5"]
+
+[node name="ThirdPersonCamera" type="Node3D"]
+script = ExtResource("1")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="StateMachine" parent="." instance=ExtResource("3")]
+InitialState = NodePath("Follow")
+
+[node name="Manual" type="Node" parent="StateMachine"]
+script = ExtResource("2")
+
+[node name="Reset" type="Node" parent="StateMachine"]
+script = ExtResource("4")
+
+[node name="Follow" type="Node" parent="StateMachine"]
+script = ExtResource("5")

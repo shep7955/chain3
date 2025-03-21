@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://de5ibetutmxcp"]
+
+[ext_resource type="PackedScene" uid="uid://ccrckw5wm7jts" path="res://effects/BarcodeScan/BarcodeScan.tscn" id="1_so6bo"]
+
+[node name="BarcodeScanTest" type="Node3D"]
+
+[node name="BarcodeScan" parent="." instance=ExtResource("1_so6bo")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.76998, -0.57542, 0.275721, 0, 0.432119, 0.901817, -0.638068, -0.694381, 0.332723, 1.10288, 3.60727, 1.33089)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b66qc1ttk0nw3"]
+
+[ext_resource type="PackedScene" uid="uid://camcd44vrd6wd" path="res://entities/TileItem/TileItem.tscn" id="1_j5m2m"]
+[ext_resource type="PackedScene" uid="uid://0yp872gwjcq3" path="res://entities/Item/Items/ItemHealthRestore.tscn" id="2_mh02d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m3gjv"]
+
+[node name="HealthPickup" node_paths=PackedStringArray("AssociatedItem") instance=ExtResource("1_j5m2m")]
+motion_mode = 0
+AssociatedItem = NodePath("ItemHealthRestore")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_m3gjv")
+
+[node name="ItemHealthRestore" parent="." index="3" instance=ExtResource("2_mh02d")]

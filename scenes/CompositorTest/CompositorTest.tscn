@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://e31wirvvul0e"]
+
+[ext_resource type="Script" uid="uid://c1oqxpyrf7cwd" path="res://scenes/CompositorTest/post_process_shader.gd" id="1_3nn08"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_js8gw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lseu0"]
+shading_mode = 0
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jt1x7"]
+
+[sub_resource type="Sky" id="Sky_rpulj"]
+sky_material = SubResource("ProceduralSkyMaterial_jt1x7")
+
+[sub_resource type="Environment" id="Environment_jcb01"]
+background_mode = 2
+sky = SubResource("Sky_rpulj")
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_2vjef"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("1_3nn08")
+shader_code = "//if((uv.x % 2) == (uv.y % 2))
+if(colour.r >= 0.999 && colour.g <= 0.001 && colour.b >= 0.999)
+{
+	colour.r = 1.0;
+	colour.a = 0.0;
+}"
+
+[sub_resource type="Compositor" id="Compositor_eypum"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_2vjef")])
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bgdl8"]
+
+[node name="CompositorTest" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_js8gw")
+surface_material_override/0 = SubResource("StandardMaterial3D_lseu0")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.41992)
+cull_mask = 1048573
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jcb01")
+compositor = SubResource("Compositor_eypum")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.32666)
+mesh = SubResource("CapsuleMesh_bgdl8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 1, 1)

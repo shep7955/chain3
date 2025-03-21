@@ -1,0 +1,38 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://v86om6iglm00"]
+
+[sub_resource type="Shader" id="1"]
+code = "shader_type canvas_item;
+
+uniform float vignette_intensity = 0.4;
+uniform float vignette_opacity : hint_range(0.0, 1.0) = 0.5;
+uniform vec4 vignette_rgb : source_color = vec4(0.0, 0.0, 0.0, 1.0);
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_nearest, repeat_disable;
+
+
+float vignette(vec2 uv)
+{
+	uv *= 1.0 - uv.xy;
+	float vignette = uv.x * uv.y * 15.0;
+	return pow(vignette, vignette_intensity * vignette_opacity);
+}
+
+void fragment()
+{
+	vec4 colour = texture(SCREEN_TEXTURE, SCREEN_UV);
+	vec4 text = texture(TEXTURE, UV);
+
+	text.rgba *= vignette_rgb.rgba;
+	text.rgba *= (1.0 - vignette(UV));
+
+	//COLOR = vec4(colour.rgb - text.rgb, text.a);
+	COLOR = vec4(colour.rgb * text.rgb, text.a);
+
+}
+"
+
+[resource]
+resource_local_to_scene = true
+shader = SubResource("1")
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)

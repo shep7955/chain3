@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0txq81kt8rq1"]
+
+[ext_resource type="PackedScene" uid="uid://ultmn3xdswch" path="res://entities/TileChar/TileChar.tscn" id="1_5g2ln"]
+[ext_resource type="Script" uid="uid://bk1vgheqxxuyj" path="res://entities/TilePlayer/TilePlayer.gd" id="2_ugf66"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7tkge"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6o1b1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_im6xq"]
+radius = 600.0
+
+[node name="TilePlayer" groups=["TilePlayer"] instance=ExtResource("1_5g2ln")]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("2_ugf66")
+AcceptInput = true
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_7tkge")
+
+[node name="ItemTrigger" type="Area2D" parent="." index="2"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemTrigger" index="0"]
+shape = SubResource("CircleShape2D_6o1b1")
+
+[node name="ObjectLoader" type="Area2D" parent="." index="3"]
+collision_layer = 0
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLoader" index="0"]
+shape = SubResource("CircleShape2D_im6xq")
+
+[connection signal="body_entered" from="ObjectLoader" to="." method="_on_object_loader_body_entered"]

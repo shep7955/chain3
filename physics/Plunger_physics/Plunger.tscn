@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://biblp6uwjpej3"]
+
+[ext_resource type="PackedScene" uid="uid://bg88cthll4vmp" path="res://physics/Plunger_physics/Plunger.glb" id="1_5hs02"]
+[ext_resource type="Shader" uid="uid://dunbdpifba4em" path="res://shaders/psx_lit.gdshader" id="2_du58t"]
+[ext_resource type="Texture2D" uid="uid://bgit8jxa3qvtc" path="res://physics/Plunger_physics/plunger.png" id="3_ats3f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3jip8"]
+render_priority = 0
+shader = ExtResource("2_du58t")
+shader_parameter/precision_multiplier = 1.0
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/albedoTex = ExtResource("3_ats3f")
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_pan_velocity = Vector2(0, 0)
+
+[node name="Plunger" instance=ExtResource("1_5hs02")]
+
+[node name="plunger" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_3jip8")

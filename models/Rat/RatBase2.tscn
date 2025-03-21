@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccvgeu5umbrwy"]
+
+[ext_resource type="PackedScene" uid="uid://vcwg350qhsj5" path="res://models/Rat/RatBase2.glb" id="1_a7b7u"]
+[ext_resource type="Material" uid="uid://cpj3evi0ghcce" path="res://materials/Mat_VertexColour.tres" id="2_vgqgl"]
+
+[node name="RatBase2" instance=ExtResource("1_a7b7u")]
+
+[node name="Cylinder" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_vgqgl")
+
+[node name="RatBase" parent="Armature/Skeleton3D" index="1"]
+surface_material_override/0 = ExtResource("2_vgqgl")
+
+[node name="RatBase_001" parent="Armature/Skeleton3D" index="2"]
+surface_material_override/0 = ExtResource("2_vgqgl")
+
+[node name="RatBase_002" parent="Armature/Skeleton3D" index="3"]
+surface_material_override/0 = ExtResource("2_vgqgl")
+
+[node name="RatBase_003" parent="Armature/Skeleton3D" index="4"]
+surface_material_override/0 = ExtResource("2_vgqgl")

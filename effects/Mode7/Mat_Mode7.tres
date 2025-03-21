@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://7v2wqopsf3ya"]
+
+[ext_resource type="Shader" path="res://effects/Mode7/Mode7.gdshader" id="1_j1ude"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_j1ude")
+shader_parameter/TRANSFORM = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/DEPTH = Vector2(0, 1.075)
+shader_parameter/REPEAT_X = true
+shader_parameter/REPEAT_Y = true
+shader_parameter/FLIP = false

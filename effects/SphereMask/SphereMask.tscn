@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://c36v11kry0c0l"]
+
+[ext_resource type="Material" uid="uid://b6ny3wwcuhobh" path="res://effects/SphereMask/Mat_SphereMask.tres" id="1_c5s01"]
+[ext_resource type="Script" uid="uid://buipd0h0mjs7w" path="res://effects/SphereMask/sphere_mask.gd" id="2_50s40"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_br521"]
+radial_segments = 16
+rings = 12
+
+[node name="SphereMask" type="MeshInstance3D"]
+mesh = SubResource("SphereMesh_br521")
+surface_material_override/0 = ExtResource("1_c5s01")
+script = ExtResource("2_50s40")

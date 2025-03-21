@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://3we21vf4y8do"]
+
+[ext_resource type="Script" uid="uid://cgvc2h301i7p6" path="res://overlays/Damage/DamageSplatter/DamageSplatter.gd" id="1_462sc"]
+
+[node name="DamageSplatter" type="Sprite2D"]
+script = ExtResource("1_462sc")
+
+[node name="Timer" type="Timer" parent="."]

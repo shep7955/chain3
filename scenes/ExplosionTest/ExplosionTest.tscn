@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbgnkc1nfaqds"]
+
+[ext_resource type="Script" uid="uid://cefmmfxjaxb01" path="res://scenes/ExplosionTest/ExplosionTest.gd" id="1_pd1vb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kfi1u"]
+
+[node name="ExplosionTest" type="Node3D"]
+script = ExtResource("1_pd1vb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_kfi1u")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.55158)

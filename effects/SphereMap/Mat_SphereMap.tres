@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://kgxqi6tmvbrl"]
+
+[ext_resource type="Shader" path="res://effects/SphereMap/Mat_SphereMap.gdshader" id="1_30cax"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_30cax")
+shader_parameter/distortion = 1.0
+shader_parameter/radius = 1.0
+shader_parameter/use_tex_alpha = true
+shader_parameter/alpha = 1.0
+shader_parameter/crop = 1.0
+shader_parameter/shade = true

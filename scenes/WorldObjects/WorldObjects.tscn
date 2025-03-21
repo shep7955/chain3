@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dugef8xl0386g"]
+
+[ext_resource type="PackedScene" uid="uid://r1ae6nns4ecj" path="res://entities/SphereTransform/SphereTransform.tscn" id="1_0i2if"]
+[ext_resource type="PackedScene" uid="uid://bw7t60thuiyrn" path="res://models/World/Metalwork/Fence/ModelFence.tscn" id="2_gc58i"]
+[ext_resource type="PackedScene" uid="uid://dsox26qn7rl8k" path="res://models/World/Buildings/Building1/ModelBuilding1.tscn" id="2_t2tvj"]
+[ext_resource type="PackedScene" uid="uid://cifs13l8ikbpc" path="res://models/World/Metalwork/StreetLamp/ModelStreetLamp.tscn" id="3_782l7"]
+[ext_resource type="PackedScene" uid="uid://cvw3w16h3wvkh" path="res://models/TestChar/ModelTestChar.tscn" id="4_o7tbg"]
+
+[node name="WorldObjects" type="Node3D"]
+
+[node name="SphereTransform" parent="." instance=ExtResource("1_0i2if")]
+ClampRange = false
+
+[node name="ModelFence" parent="SphereTransform" instance=ExtResource("2_gc58i")]
+visible = false
+
+[node name="ModelStreetLamp" parent="SphereTransform" instance=ExtResource("3_782l7")]
+
+[node name="SphereTransform2" parent="." instance=ExtResource("1_0i2if")]
+transform = Transform3D(1, 0, 0, 0, 0.999991, 0, 0, 0, 0.999991, 2.42141, 0, 0)
+visible = false
+ClampRange = false
+
+[node name="Building1" parent="SphereTransform2" instance=ExtResource("2_t2tvj")]
+
+[node name="SphereTransform3" parent="." instance=ExtResource("1_0i2if")]
+transform = Transform3D(1, 0, 0, 0, 0.999991, 0, 0, 0, 0.999991, 4.70639, 0, 0)
+visible = false
+ClampRange = false
+
+[node name="ModelTestChar" parent="SphereTransform3" instance=ExtResource("4_o7tbg")]

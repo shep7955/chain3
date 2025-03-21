@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc4mshx7pix86"]
+
+[ext_resource type="PackedScene" uid="uid://c38nbc66jwdhn" path="res://entities/Character/Character.tscn" id="1_j87sr"]
+[ext_resource type="PackedScene" uid="uid://ccvgeu5umbrwy" path="res://models/Rat/RatBase2.tscn" id="2_ev3yw"]
+
+[node name="Rat" type="Node3D"]
+
+[node name="Character" parent="." instance=ExtResource("1_j87sr")]
+
+[node name="RatBase2" parent="Character/CharacterMesh" index="0" instance=ExtResource("2_ev3yw")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Character/CharacterMesh/RatBase2/Armature" index="0"]
+bones/0/position = Vector3(0, 0.503687, 0)
+bones/1/position = Vector3(1.59016e-16, -5.20676, 1.55585)
+bones/1/rotation = Quaternion(0, 0, 1, 0)
+bones/2/position = Vector3(3.42474e-16, 4.16127, 0.994499)
+bones/3/position = Vector3(0.466403, 2.75686, -0.185006)
+bones/4/position = Vector3(0.673623, -0.74666, -0.262602)
+bones/5/position = Vector3(-0.466403, 2.75686, -0.185006)
+bones/6/position = Vector3(-0.673623, -0.74666, -0.262602)
+bones/7/position = Vector3(3.15669e-16, -0.0897874, 1.72346)
+bones/8/rotation = Quaternion(-0.992861, -3.05328e-17, 1.65967e-16, 0.119265)
+bones/9/rotation = Quaternion(-4.72663e-09, 0.994136, -0.108133, 4.34551e-08)
+bones/10/rotation = Quaternion(-0.10373, 4.34756e-08, 4.53417e-09, 0.994606)
+bones/11/rotation = Quaternion(-0.0751669, -3.26413e-16, -4.69569e-16, 0.997171)
+bones/12/rotation = Quaternion(-0.0541414, -1.87411e-16, -4.48451e-16, 0.998533)
+bones/13/rotation = Quaternion(-0.036625, -8.76741e-17, -2.86629e-16, 0.999329)
+bones/14/rotation = Quaternion(-0.022696, -2.88716e-17, -1.59464e-16, 0.999743)
+bones/15/rotation = Quaternion(-0.0106516, -4.84754e-18, -6.5331e-17, 0.999943)
+bones/16/rotation = Quaternion(0.133628, 3.81274e-19, -4.36361e-18, 0.991032)
+bones/17/rotation = Quaternion(-0.132683, 4.37551e-18, 1.21856e-17, 0.991159)
+bones/18/rotation = Quaternion(0.0675984, 4.5858e-17, -1.66847e-18, 0.997713)
+bones/19/rotation = Quaternion(-0.00348961, 2.86892e-18, -2.64696e-18, 0.999994)
+bones/20/rotation = Quaternion(0.136384, 0.776724, -0.597074, 0.146978)
+bones/21/rotation = Quaternion(-0.212235, 0.0303291, -0.122054, 0.969092)
+bones/22/rotation = Quaternion(-0.0552892, -0.760846, 0.644937, 0.0459673)
+bones/23/rotation = Quaternion(0.136384, -0.776724, 0.597074, 0.146978)
+bones/24/rotation = Quaternion(-0.212235, -0.0303291, 0.122054, 0.969092)
+bones/25/rotation = Quaternion(-0.0552892, 0.760846, -0.644937, 0.0459673)
+bones/26/rotation = Quaternion(0.143468, 0.702801, -0.692631, 0.0758257)
+bones/27/rotation = Quaternion(0.00308143, 0.00529482, -7.90332e-05, 0.999981)
+bones/28/rotation = Quaternion(-0.000543516, -0.987798, 0.00397233, 0.15569)
+bones/29/rotation = Quaternion(0.143468, -0.702801, 0.692631, 0.0758257)
+bones/30/rotation = Quaternion(0.00308143, -0.00529482, 7.90332e-05, 0.999981)
+bones/31/rotation = Quaternion(-0.000543516, 0.987798, -0.00397233, 0.15569)
+
+[node name="SpotShadow" parent="Character" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.178853, 0)
+
+[node name="DecalMesh" parent="Character/SpotShadow/DecalParent" index="0"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[editable path="Character"]
+[editable path="Character/CharacterMesh/RatBase2"]
+[editable path="Character/SpotShadow"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dybfr8n8iqq7i"]
+
+[ext_resource type="Texture2D" uid="uid://b7cv454hsrf6y" path="res://entities/TileItem/ItemTestIcon.png" id="1_yb4xy"]
+
+[node name="ModelTileItemTestIcon" type="Sprite3D"]
+pixel_size = 0.05
+billboard = 1
+texture_filter = 0
+texture = ExtResource("1_yb4xy")

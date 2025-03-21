@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://0yp872gwjcq3"]
+
+[ext_resource type="PackedScene" uid="uid://vbpkvmygn800" path="res://entities/Item/Item.tscn" id="1_mi0kr"]
+[ext_resource type="Script" uid="uid://tcuhrm5tjftv" path="res://entities/Item/Items/ItemHealthRestore.gd" id="2_pc7bm"]
+
+[node name="ItemHealthRestore" instance=ExtResource("1_mi0kr")]
+script = ExtResource("2_pc7bm")

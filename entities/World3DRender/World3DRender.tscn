@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://bt8mwvtlke4bp"]
+
+[ext_resource type="Script" uid="uid://rowfrpkuex25" path="res://entities/World3DRender/World3DRender.gd" id="1_8rn61"]
+[ext_resource type="Script" uid="uid://lu2yhjijgqqk" path="res://entities/World3DRender/PostProcessMask.gd" id="3_n00ag"]
+
+[sub_resource type="Environment" id="Environment_y4kkm"]
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_usisr"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("3_n00ag")
+shader_code = "//test"
+
+[sub_resource type="Compositor" id="Compositor_n3bd3"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_usisr")])
+
+[sub_resource type="SphereMesh" id="SphereMesh_fbe1j"]
+radius = 5.85
+height = 11.6
+radial_segments = 24
+rings = 15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qou74"]
+shading_mode = 0
+albedo_color = Color(1, 0, 1, 1)
+
+[node name="World3DRender" type="Node3D"]
+script = ExtResource("1_8rn61")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_y4kkm")
+compositor = SubResource("Compositor_n3bd3")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 14)
+cull_mask = 1016801
+current = true
+near = 0.1
+far = 1000.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.789416, 0.469291, -0.395712, 0, 0.644631, 0.764494, 0.613858, -0.603504, 0.508882, 0, 0, 0)
+light_color = Color(0.922432, 0.901511, 1, 1)
+light_energy = 0.6
+light_indirect_energy = 0.3
+
+[node name="Mask" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_fbe1j")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_qou74")
+
+[node name="ActiveObjects" type="Node3D" parent="."]
+
+[node name="InactiveObjects" type="Node3D" parent="."]

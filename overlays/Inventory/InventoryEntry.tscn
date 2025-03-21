@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctbadrtxrlceq"]
+
+[ext_resource type="Texture2D" uid="uid://cxuhdlfuiupug" path="res://overlays/Inventory/InventoryIcons.png" id="1_6el5d"]
+[ext_resource type="Script" uid="uid://vwocarfelu0x" path="res://overlays/Inventory/InventoryEntry.gd" id="1_knbga"]
+
+[node name="InventoryEntry" type="Sprite2D"]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("1_6el5d")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+script = ExtResource("1_knbga")

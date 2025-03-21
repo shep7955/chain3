@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4ndw6txjsopy"]
+
+[ext_resource type="Script" uid="uid://dlsfg7pvi7k2y" path="res://entities/Persistence/Persistence.gd" id="1_ikf5y"]
+
+[node name="Persistence" type="Node"]
+script = ExtResource("1_ikf5y")
+Enabled = null

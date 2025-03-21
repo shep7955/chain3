@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvh0xwbeclunf"]
+
+[ext_resource type="Script" uid="uid://p0hv3rx7w62i" path="res://effects/HitImpact/HitImpact.gd" id="1"]
+
+[node name="HitImpact" type="Node3D"]
+script = ExtResource("1")

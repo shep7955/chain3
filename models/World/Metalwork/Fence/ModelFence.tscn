@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw7t60thuiyrn"]
+
+[ext_resource type="PackedScene" uid="uid://jhvgnfwvo3p6" path="res://models/World/Metalwork/Fence/Fence.glb" id="1_eylic"]
+[ext_resource type="Material" uid="uid://byg3c324me5er" path="res://materials/Mat_3DModelAtlas.tres" id="2_1qn2q"]
+
+[node name="ModelFence" instance=ExtResource("1_eylic")]
+
+[node name="Plane" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_1qn2q")

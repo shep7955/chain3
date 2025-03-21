@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwy1cso0h71mq"
+path="res://.godot/imported/地下迷宮.mp3-d2dad5242e21e19a78ce409ea41107e9.mp3str"
+
+[deps]
+
+source_file="res://music/DOVA/heitaro ashibe/地下迷宮.mp3"
+dest_files=["res://.godot/imported/地下迷宮.mp3-d2dad5242e21e19a78ce409ea41107e9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://druolwt0kbyb0"]
+
+[ext_resource type="Script" uid="uid://bspq760pxy3sf" path="res://entities/FogController/FogController.gd" id="1_bbi4t"]
+
+[node name="FogController" type="Node"]
+script = ExtResource("1_bbi4t")

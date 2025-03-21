@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2qrvclc2n0fq"]
+
+[ext_resource type="Script" uid="uid://q3ckcbdqouhd" path="res://entities/SmokeEmitter/SmokeEmitter.gd" id="1_fheun"]
+[ext_resource type="PackedScene" uid="uid://x7a3237dtpp0" path="res://effects/Smoke/Smoke.tscn" id="2_c67mi"]
+
+[node name="SmokeEmitter" type="Node3D"]
+script = ExtResource("1_fheun")
+Smoke = ExtResource("2_c67mi")

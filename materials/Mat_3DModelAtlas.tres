@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://byg3c324me5er"]
+
+[ext_resource type="Shader" path="res://shaders/saturn_autoMeshOpaque.gdshader" id="1_5cqet"]
+[ext_resource type="Texture2D" uid="uid://dab50hya6gig8" path="res://textures/ObjectTextureAtlas.png" id="2_j0yt7"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_5cqet")
+shader_parameter/precision_multiplier = 1.0
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/billboard = false
+shader_parameter/y_billboard = false
+shader_parameter/uv_pan_velocity = Vector2(0, 0)
+shader_parameter/albedoTex = ExtResource("2_j0yt7")

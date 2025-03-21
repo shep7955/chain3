@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdglw24veoapq"]
+
+[ext_resource type="PackedScene" uid="uid://7stwkwg5lx21" path="res://entities/TileObject/TileObject.tscn" id="1_8e7o7"]
+[ext_resource type="PackedScene" uid="uid://dsox26qn7rl8k" path="res://models/World/Buildings/Building1/ModelBuilding1.tscn" id="2_i4rqm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_neeai"]
+
+[node name="Building1" instance=ExtResource("1_8e7o7")]
+ObjectModel = ExtResource("2_i4rqm")
+ObjectRotation = Vector2(0, -90)
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_neeai")

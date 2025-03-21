@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3gwdee1fvsw4"]
+
+[ext_resource type="Script" uid="uid://s1cqt0nlntgk" path="res://scenes/SmokeTest/SmokeTest.gd" id="1_he2xv"]
+[ext_resource type="PackedScene" uid="uid://x7a3237dtpp0" path="res://effects/Smoke/Smoke.tscn" id="3_pjil4"]
+
+[node name="SmokeTest" type="Node3D"]
+script = ExtResource("1_he2xv")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Smoke" parent="." instance=ExtResource("3_pjil4")]
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.759)
+
+[node name="Smoke2" parent="." instance=ExtResource("3_pjil4")]

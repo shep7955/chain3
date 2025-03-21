@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjvctw0cunyfn"]
+
+[ext_resource type="Script" uid="uid://ddk1xcgu5drhl" path="res://entities/InteractionHandler/InteractionHandler.gd" id="1_bxyso"]
+
+[node name="InteractionHandler" type="RayCast3D"]
+collision_mask = 2048
+script = ExtResource("1_bxyso")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ultmn3xdswch"]
+
+[ext_resource type="PackedScene" uid="uid://7stwkwg5lx21" path="res://entities/TileObject/TileObject.tscn" id="1_ivmoe"]
+[ext_resource type="Script" uid="uid://dsb2ug2vw4dq5" path="res://entities/TileChar/TileChar.gd" id="1_nnbov"]
+
+[node name="TileChar" groups=["TileChar"] instance=ExtResource("1_ivmoe")]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_nnbov")
+Health = 1
+MaxHealth = 1
+
+[node name="DebugIcon" parent="." index="1"]
+color = Color(0.964706, 0, 0, 1)
+polygon = PackedVector2Array(0, -16, 16, 16, -16, 16)

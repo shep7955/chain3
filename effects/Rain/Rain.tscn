@@ -1,0 +1,114 @@
+[gd_scene load_steps=16 format=3 uid="uid://djbq115yr5d3e"]
+
+[ext_resource type="Shader" uid="uid://doi86f4rkgsex" path="res://shaders/psx_unlit_transparent.gdshader" id="1_4i7lc"]
+[ext_resource type="Shader" uid="uid://dmdau5ngr76tl" path="res://effects/Rain/RainWaveSource.gdshader" id="1_shsg8"]
+[ext_resource type="Script" uid="uid://c3jycednkrva5" path="res://effects/Rain/Rain.gd" id="1_xohby"]
+[ext_resource type="Texture2D" uid="uid://dffnkmd21ndqp" path="res://effects/Rain/RainDropCircle.png" id="2_acjr7"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2a26w"]
+emission_shape = 3
+emission_box_extents = Vector3(10, 1, 10)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 90.0
+initial_velocity_max = 90.0
+attractor_interaction_enabled = false
+collision_mode = 2
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
+
+[sub_resource type="Gradient" id="Gradient_amj2c"]
+colors = PackedColorArray(0.625467, 0.614866, 0.613451, 1, 0.0496688, 0.294323, 0.568596, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_va3g6"]
+gradient = SubResource("Gradient_amj2c")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0.544944)
+metadata/_snap_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ia4ey"]
+albedo_texture = SubResource("GradientTexture2D_va3g6")
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_j4dnq"]
+material = SubResource("StandardMaterial3D_ia4ey")
+size = Vector2(0.05, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4bmih"]
+render_priority = 0
+shader = ExtResource("1_shsg8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8fyw2"]
+emission_shape = 3
+emission_box_extents = Vector3(10, 1, 10)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, -5, 0)
+attractor_interaction_enabled = false
+collision_mode = 2
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_4qx08"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iigjh"]
+render_priority = 0
+shader = ExtResource("1_4i7lc")
+shader_parameter/precision_multiplier = 1.0
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/albedoTex = ExtResource("2_acjr7")
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_pan_velocity = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1opaq"]
+emission_shape = 3
+emission_box_extents = Vector3(10, 1, 10)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+attractor_interaction_enabled = false
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_s3ldm"]
+size = Vector2(0.2, 0.2)
+orientation = 1
+
+[node name="Rain" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+cast_shadow = 0
+amount = 20
+lifetime = 0.25
+visibility_aabb = AABB(-10, -20, -10, 20, 20, 20)
+process_material = SubResource("ParticleProcessMaterial_2a26w")
+draw_pass_1 = SubResource("QuadMesh_j4dnq")
+script = ExtResource("1_xohby")
+
+[node name="GPUParticlesCollisionHeightField3D" type="GPUParticlesCollisionHeightField3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.1313, 0)
+size = Vector3(20, 34.5084, 20)
+update_mode = 1
+
+[node name="RainWaveSource" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.0101, 0)
+material_override = SubResource("ShaderMaterial_4bmih")
+amount = 60
+sub_emitter = NodePath("../RainWaveEmitter")
+lifetime = 3.0
+collision_base_size = 0.3
+visibility_aabb = AABB(-10, -20, -10, 20, 20, 20)
+process_material = SubResource("ParticleProcessMaterial_8fyw2")
+draw_pass_1 = SubResource("SphereMesh_4qx08")
+
+[node name="RainWaveEmitter" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.0101, 0)
+material_override = SubResource("ShaderMaterial_iigjh")
+emitting = false
+amount = 60
+lifetime = 0.25
+visibility_aabb = AABB(-10, -20, -10, 20, 20, 20)
+process_material = SubResource("ParticleProcessMaterial_1opaq")
+draw_pass_1 = SubResource("QuadMesh_s3ldm")

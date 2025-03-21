@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbxp6cxd2ma2r"]
+
+[ext_resource type="Script" uid="uid://po5f13jju64r" path="res://scenes/MaterialLoader/MaterialLoader.gd" id="1"]
+
+[sub_resource type="PlaneMesh" id="1"]
+
+[node name="MaterialLoader" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("1")
+script = ExtResource("1")

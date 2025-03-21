@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bchnoys5j1yxe"]
+
+[ext_resource type="Shader" uid="uid://7g0dqmm4dii7" path="res://effects/Jehuty/Jehuty.gdshader" id="1_0txm2"]
+[ext_resource type="Texture2D" uid="uid://cjfqwgrt5ma6" path="res://effects/Jehuty/Jehuty.png" id="2_ote2h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ba4vy"]
+render_priority = 0
+shader = ExtResource("1_0txm2")
+shader_parameter/albedoTex = ExtResource("2_ote2h")
+
+[node name="Jehuty" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+material_override = SubResource("ShaderMaterial_ba4vy")
+texture_filter = 0
+texture = ExtResource("2_ote2h")

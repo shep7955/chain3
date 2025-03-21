@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bbs868lqlhwi7"]
+
+[ext_resource type="Shader" path="res://shaders/psx_unlit_transparent.gdshader" id="1_cjtqv"]
+[ext_resource type="Texture2D" uid="uid://bbkyjd1o4h2jm" path="res://effects/ExplosionSphere/ExplosionSphere.png" id="2_uhq5e"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_cjtqv")
+shader_parameter/precision_multiplier = 1.0
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/uv_scale = Vector2(3, 2)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_pan_velocity = Vector2(0, 1)
+shader_parameter/albedoTex = ExtResource("2_uhq5e")

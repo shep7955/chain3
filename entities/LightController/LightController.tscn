@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://uuycnwmtir5s"]
+
+[ext_resource type="Script" uid="uid://cy17565sa675r" path="res://entities/LightController/LightController.gd" id="1_erajs"]
+[ext_resource type="Texture2D" uid="uid://14chls2p18ql" path="res://icons/Sun.png" id="2_hlfoo"]
+
+[node name="LightController" type="Node3D"]
+script = ExtResource("1_erajs")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+visible = false
+pixel_size = 0.02
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_hlfoo")

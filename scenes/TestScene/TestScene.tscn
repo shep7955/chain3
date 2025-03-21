@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://tvlpj7u8vh2h"]
+
+[ext_resource type="Script" uid="uid://yuut3smr6tch" path="res://scenes/TestScene/TestScene.gd" id="1_ar7uc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bywsh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4ccsu"]
+
+[sub_resource type="Sky" id="Sky_cj18k"]
+sky_material = SubResource("ProceduralSkyMaterial_4ccsu")
+
+[sub_resource type="Environment" id="Environment_18pr1"]
+background_mode = 2
+sky = SubResource("Sky_cj18k")
+
+[node name="TestScene" type="Node3D"]
+script = ExtResource("1_ar7uc")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.7266, -0.388146, 0.566917, 0, 0.825134, 0.564937, -0.687061, -0.410483, 0.599542, 2.26767, 2.25975, 2.39817)
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_bywsh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_18pr1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.617956, 0.506565, -0.601267, 0, 0.764764, 0.644311, 0.786213, -0.398155, 0.47259, 0, 0, 0)

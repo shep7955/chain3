@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf3t2fka0iqxt"]
+
+[ext_resource type="Material" uid="uid://v86om6iglm00" path="res://overlays/Vignette/Mat_Vignette.tres" id="1"]
+[ext_resource type="Script" uid="uid://bppgbojftnv0h" path="res://overlays/Vignette/Vignette.gd" id="2"]
+
+[node name="Vignette" type="ColorRect"]
+material = ExtResource("1")
+offset_right = 854.0
+offset_bottom = 480.0
+script = ExtResource("2")

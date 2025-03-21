@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccrckw5wm7jts"]
+
+[ext_resource type="Script" uid="uid://b38rfpmefshv6" path="res://effects/BarcodeScan/BarcodeScan.gd" id="1_cwrng"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1kxs"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_5wccx"]
+
+[node name="BarcodeScan" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_p1kxs")
+mesh = SubResource("ImmediateMesh_5wccx")
+script = ExtResource("1_cwrng")
+
+[node name="Start" type="Node3D" parent="."]
+
+[node name="End" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Left" type="Node3D" parent="End"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+
+[node name="Right" type="Node3D" parent="End"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)

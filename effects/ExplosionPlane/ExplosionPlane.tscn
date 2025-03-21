@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnhtkwvyslaxv"]
+
+[ext_resource type="PackedScene" uid="uid://dalhl2vmi5cfi" path="res://effects/Billboard/Billboard.tscn" id="1_bq88k"]
+[ext_resource type="Shader" uid="uid://djqh4655vqjo2" path="res://effects/Billboard/BillboardRotating_unshaded.gdshader" id="2_ea0bm"]
+[ext_resource type="Texture2D" uid="uid://b7syirg1sy3vv" path="res://effects/ExplosionPlane/ExplosionPlane.png" id="3_jkckl"]
+[ext_resource type="Script" uid="uid://b8kbagvipojma" path="res://effects/ExplosionPlane/ExplosionPlane.gd" id="4_t7van"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kpjqx"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_ea0bm")
+shader_parameter/precision_multiplier = 1.0
+shader_parameter/modulate_colour = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("3_jkckl")
+shader_parameter/uv_scale = Vector2(0.25, 0.25)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/rotation = 0.0
+shader_parameter/enable_fog = true
+
+[node name="ExplosionPlane" instance=ExtResource("1_bq88k")]
+surface_material_override/0 = SubResource("ShaderMaterial_kpjqx")
+script = ExtResource("4_t7van")

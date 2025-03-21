@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://d20fsmknciy1s"]
+
+[ext_resource type="PackedScene" uid="uid://scbnldeplotc" path="res://overlays/Dialogue/DialogueText/DialogueText.tscn" id="1_kut7h"]
+[ext_resource type="Script" uid="uid://bm1g866au6l4d" path="res://overlays/Dialogue/DialogueWindow/DialogueWindow.gd" id="1_sauqg"]
+[ext_resource type="PackedScene" uid="uid://bu4irp2rmkcb5" path="res://overlays/Dialogue/DialogueCursor/DialogueCursor.tscn" id="3_8toew"]
+
+[node name="DialogueWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_sauqg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 420.0
+offset_bottom = 120.0
+color = Color(0.396078, 0.396078, 0.396078, 0.501961)
+
+[node name="DialogueText" parent="." instance=ExtResource("1_kut7h")]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 410.0
+offset_bottom = 110.0
+
+[node name="DialogueCursor" parent="." instance=ExtResource("3_8toew")]

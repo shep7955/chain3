@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://r1ae6nns4ecj"]
+
+[ext_resource type="Script" uid="uid://c274wl6kni6tn" path="res://entities/SphereTransform/sphere_transform.gd" id="1_iia3r"]
+
+[node name="SphereTransform" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999991, 0, 0, 0, 0.999991, 0, 0, 0)
+script = ExtResource("1_iia3r")

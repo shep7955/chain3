@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ygykpmnmnf17"]
+
+[ext_resource type="PackedScene" uid="uid://d1xljwcpeot2a" path="res://models/World/Buildings/Building2/Building2.glb" id="1_ull6a"]
+
+[node name="ModelBuilding2" instance=ExtResource("1_ull6a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.58024)

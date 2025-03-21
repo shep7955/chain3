@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwtifpqbru83o"]
+
+[ext_resource type="Script" uid="uid://bwch50e53yte7" path="res://scenes/RatTest/RatTest.gd" id="1_mfwe2"]
+[ext_resource type="Material" uid="uid://dspwbs8a4b68y" path="res://materials/debug_material.material" id="2_evgxg"]
+[ext_resource type="PackedScene" uid="uid://cc4mshx7pix86" path="res://models/Rat/Rat.tscn" id="3_8kage"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ah2fk"]
+subdivide_width = 1
+subdivide_depth = 1
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tbtpy"]
+
+[sub_resource type="Sky" id="Sky_jkxdv"]
+sky_material = SubResource("ProceduralSkyMaterial_tbtpy")
+
+[sub_resource type="Environment" id="Environment_chu4u"]
+background_mode = 2
+sky = SubResource("Sky_jkxdv")
+
+[node name="RatTest" type="Node3D"]
+script = ExtResource("1_mfwe2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_ah2fk")
+surface_material_override/0 = ExtResource("2_evgxg")
+
+[node name="Rat" parent="." instance=ExtResource("3_8kage")]
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.901077, 0.433659, 0, -0.433659, 0.901077, 0, 0.989, 1.898)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_chu4u")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.810451, -0.496695, 0.310586, 0, 0.530186, 0.847882, -0.585807, -0.687166, 0.429689, 0, 0, 0)

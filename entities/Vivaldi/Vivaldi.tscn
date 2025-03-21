@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfdqmt50rihqo"]
+
+[ext_resource type="PackedScene" uid="uid://c38nbc66jwdhn" path="res://entities/Character/Character.tscn" id="1_wmn8k"]
+[ext_resource type="Script" uid="uid://1txlbfyukkij" path="res://entities/Vivaldi/Vivaldi.gd" id="2_1wbo8"]
+[ext_resource type="PackedScene" uid="uid://cc4mshx7pix86" path="res://models/Rat/Rat.tscn" id="2_meff7"]
+[ext_resource type="Script" uid="uid://5c8a012yo4pj" path="res://entities/Vivaldi/idle.gd" id="3_1642t"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mbnil"]
+radius = 0.15
+
+[node name="Vivaldi" instance=ExtResource("1_wmn8k")]
+script = ExtResource("2_1wbo8")
+
+[node name="WorldCollision" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+shape = SubResource("SphereShape3D_mbnil")
+
+[node name="Rat" parent="CharacterMesh" index="0" instance=ExtResource("2_meff7")]
+
+[node name="Skeleton3D" parent="CharacterMesh/Rat/Character/CharacterMesh/RatBase2/Armature" index="0"]
+bones/0/position = Vector3(0, 0, 0)
+bones/0/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+bones/1/position = Vector3(1.50298e-16, -5.11648, 0.824269)
+bones/2/position = Vector3(3.22132e-16, 4.18395, 1.59814)
+bones/3/position = Vector3(0.466403, 3.10912, 0.0713109)
+bones/4/position = Vector3(0.508944, 0.712027, 0.0762424)
+bones/5/position = Vector3(-0.466403, 3.10912, 0.0713109)
+bones/6/position = Vector3(-0.508944, 0.712027, 0.0762424)
+bones/7/position = Vector3(3.1594e-16, -0.0897874, 1.57025)
+bones/7/rotation = Quaternion(-0.157753, -8.92122e-26, -5.59583e-18, 0.987479)
+bones/8/rotation = Quaternion(0.914256, 3.9272e-17, -2.13399e-16, -0.405136)
+bones/9/rotation = Quaternion(-1.1183e-08, 0.96672, -0.255837, 4.22567e-08)
+bones/10/rotation = Quaternion(5.86544e-09, 4.37114e-08, -1.35771e-15, 1)
+bones/11/rotation = Quaternion(1.21346e-09, -7.95653e-22, 3.03596e-16, 1)
+bones/12/rotation = Quaternion(-3.53474e-10, -4.08465e-22, 1.32035e-16, 1)
+bones/13/rotation = Quaternion(-7.14406e-10, -2.67682e-24, 1.83861e-17, 1)
+bones/14/rotation = Quaternion(-5.85288e-10, -8.16316e-24, 1.64873e-17, 1)
+bones/15/rotation = Quaternion(-3.01702e-10, 4.11497e-22, -5.67313e-18, 1)
+bones/16/rotation = Quaternion(0.202116, 1.83166e-18, -4.29607e-18, 0.979362)
+bones/17/rotation = Quaternion(-0.0558639, -2.64388e-25, 1.24043e-17, 0.998438)
+bones/18/rotation = Quaternion(0.0687274, -3.75958e-22, -1.52606e-17, 0.997635)
+bones/19/rotation = Quaternion(-0.124138, 1.48044e-23, 2.75642e-17, 0.992265)
+bones/20/rotation = Quaternion(0.112452, 0.771571, -0.611215, 0.135827)
+bones/21/rotation = Quaternion(-0.0965827, 0.0324841, -0.102601, 0.98949)
+bones/22/rotation = Quaternion(0.0382201, 0.832563, -0.549568, -0.0579011)
+bones/23/rotation = Quaternion(-0.112452, 0.771571, -0.611215, -0.135827)
+bones/24/rotation = Quaternion(-0.0965827, -0.0324841, 0.102601, 0.98949)
+bones/25/rotation = Quaternion(-0.0382201, 0.832563, -0.549568, 0.0579011)
+bones/26/rotation = Quaternion(0.119325, 0.879216, -0.445567, 0.119209)
+bones/27/rotation = Quaternion(0.194983, 0.00235349, -0.0195873, 0.980608)
+bones/28/rotation = Quaternion(-0.109461, -0.671871, 0.725487, 0.101371)
+bones/29/rotation = Quaternion(-0.119325, 0.879216, -0.445567, -0.119209)
+bones/30/rotation = Quaternion(0.194983, -0.00235349, 0.0195873, 0.980608)
+bones/31/rotation = Quaternion(0.109461, -0.671871, 0.725487, -0.101371)
+
+[node name="StateMachine" parent="." index="2"]
+InitialState = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" index="0"]
+script = ExtResource("3_1642t")
+
+[editable path="CharacterMesh/Rat"]
+[editable path="CharacterMesh/Rat/Character"]
+[editable path="CharacterMesh/Rat/Character/CharacterMesh/RatBase2"]

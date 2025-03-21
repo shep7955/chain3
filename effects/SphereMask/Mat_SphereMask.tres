@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://b6ny3wwcuhobh"]
+
+[ext_resource type="Shader" path="res://effects/SphereMask/SphereMask.gdshader" id="1_4i1t6"]
+[ext_resource type="Shader" path="res://entities/World3DRender/SphereMask2.gdshader" id="1_jliyp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cukvy"]
+render_priority = 2
+shader = ExtResource("1_jliyp")
+
+[resource]
+render_priority = 11
+next_pass = SubResource("ShaderMaterial_cukvy")
+shader = ExtResource("1_4i1t6")

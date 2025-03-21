@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://by7ylmrdefp3u"]
+
+[ext_resource type="Shader" path="res://effects/LightPulsing/LightPulsing.gdshader" id="1_ij1xi"]
+[ext_resource type="Texture2D" uid="uid://yit5kd7tnivk" path="res://textures/star_02.png" id="2_sytiq"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_ij1xi")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/distance_fade_min = 10.0
+shader_parameter/distance_fade_max = 0.0
+shader_parameter/PulseAlphaMultiplier = 0.8
+shader_parameter/texture_albedo = ExtResource("2_sytiq")

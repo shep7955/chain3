@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b412bjjnjvpry"]
+
+[ext_resource type="PackedScene" uid="uid://bt8mwvtlke4bp" path="res://entities/World3DRender/World3DRender.tscn" id="1_paqx8"]
+
+[node name="World3DTest" type="Node2D"]
+
+[node name="World3dRender" parent="." instance=ExtResource("1_paqx8")]

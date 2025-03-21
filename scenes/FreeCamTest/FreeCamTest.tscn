@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://drcw0q82u1x3w"]
+
+[ext_resource type="Script" uid="uid://c235v5dm0tj2k" path="res://scenes/FreeCamTest/FreeCamTest.gd" id="1_3sjal"]
+[ext_resource type="PackedScene" uid="uid://cspnw75c340a2" path="res://entities/FreeCam/FreeCam.tscn" id="1_82ym7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tm5fh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sroct"]
+
+[sub_resource type="Sky" id="Sky_6oplt"]
+sky_material = SubResource("ProceduralSkyMaterial_sroct")
+
+[sub_resource type="Environment" id="Environment_r0cuu"]
+background_mode = 2
+sky = SubResource("Sky_6oplt")
+
+[node name="FreeCamTest" type="Node3D"]
+script = ExtResource("1_3sjal")
+
+[node name="FreeCam" parent="." instance=ExtResource("1_82ym7")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_tm5fh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r0cuu")

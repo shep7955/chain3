@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cltpuynya2ubn"]
+
+[ext_resource type="Shader" uid="uid://wukvbuxsc0qq" path="res://shaders/RotatingBillboardtest.gdshader" id="1_nu5j4"]
+[ext_resource type="Texture2D" uid="uid://x2setj6wr0cn" path="res://effects/LightPulsing/LensFlare.png" id="2_mqv8t"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_pibwa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ar0v"]
+render_priority = 0
+shader = ExtResource("1_nu5j4")
+shader_parameter/precision_multiplier = 1.0
+shader_parameter/modulate_colour = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_mqv8t")
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/rotation = 0.0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_pibwa")
+surface_material_override/0 = SubResource("ShaderMaterial_7ar0v")

@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b7ljcheysar0l"]
+
+[ext_resource type="Shader" path="res://shaders/pp_band-dither.gdshader" id="2"]
+
+[resource]
+shader = ExtResource("2")
+shader_parameter/col_depth = 8.0
+shader_parameter/dither_banding = true
+shader_parameter/buffer_size = Vector2(427, 240)

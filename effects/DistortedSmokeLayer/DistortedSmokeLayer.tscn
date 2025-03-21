@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctqkhlsgtc01w"]
+
+[ext_resource type="Material" uid="uid://bl2vn5yhh23su" path="res://effects/DistortedSmokeLayer/Mat_DistortedSmoke.tres" id="1_il4dd"]
+[ext_resource type="Script" uid="uid://vy1024aha4e1" path="res://effects/DistortedSmokeLayer/DistortedSmokeLayer.gd" id="2_jstef"]
+
+[node name="DistortedSmokeLayer" type="ColorRect"]
+material = ExtResource("1_il4dd")
+offset_right = 854.0
+offset_bottom = 480.0
+script = ExtResource("2_jstef")

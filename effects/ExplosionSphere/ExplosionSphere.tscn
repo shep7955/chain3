@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://vodmqf1f0jht"]
+
+[ext_resource type="Script" uid="uid://dcif645ljjadm" path="res://effects/ExplosionSphere/ExplosionSphere.gd" id="3_vjdc8"]
+[ext_resource type="PackedScene" uid="uid://dsd4siw36r8aa" path="res://effects/ExplosionSphere/ExplosionSphereMesh.tscn" id="3_xaiv1"]
+
+[node name="ExplosionSphere" type="Node3D"]
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
+script = ExtResource("3_vjdc8")
+FadeStartTime = 0.75
+
+[node name="ExplosionSphereMesh" parent="." instance=ExtResource("3_xaiv1")]

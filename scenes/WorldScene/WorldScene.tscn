@@ -1,0 +1,182 @@
+[gd_scene load_steps=23 format=3 uid="uid://yyds78154aur"]
+
+[ext_resource type="Script" uid="uid://dqlaxkxro6w5k" path="res://scenes/WorldScene/WorldScene.gd" id="1_2wfk6"]
+[ext_resource type="PackedScene" uid="uid://00ic8fs2o55q" path="res://effects/Mode7/Mode7.tscn" id="2_6plfh"]
+[ext_resource type="PackedScene" uid="uid://qe5s4vu031h" path="res://effects/SphereMap/SphereMap.tscn" id="3_88f1j"]
+[ext_resource type="Shader" uid="uid://xrc4fj1t4rqt" path="res://effects/Mode7/Mode7.gdshader" id="4_a3tfq"]
+[ext_resource type="Texture2D" uid="uid://bdyrr4hmmja2j" path="res://textures/cloudy3 - Onsemeliot.png" id="4_b3bqq"]
+[ext_resource type="Shader" uid="uid://byaapyq2twjty" path="res://effects/SphereMap/Mat_SphereMap.gdshader" id="5_p37gu"]
+[ext_resource type="Texture2D" uid="uid://bxgygqrlsi2mx" path="res://textures/deep_ocean_battlemap - MiniModele.png" id="5_r810o"]
+[ext_resource type="PackedScene" uid="uid://ctqkhlsgtc01w" path="res://effects/DistortedSmokeLayer/DistortedSmokeLayer.tscn" id="7_mr3de"]
+[ext_resource type="PackedScene" uid="uid://bt8mwvtlke4bp" path="res://entities/World3DRender/World3DRender.tscn" id="7_u1gqm"]
+[ext_resource type="PackedScene" uid="uid://c0txq81kt8rq1" path="res://entities/TilePlayer/TilePlayer.tscn" id="8_j1e43"]
+[ext_resource type="PackedScene" uid="uid://baj2gv0n7l63t" path="res://scenes/WorldTilemap/WorldTilemap.tscn" id="8_qlpbm"]
+[ext_resource type="PackedScene" uid="uid://cf3t2fka0iqxt" path="res://overlays/Vignette/Vignette.tscn" id="11_gff5y"]
+[ext_resource type="PackedScene" uid="uid://2qjyj0duj1d1" path="res://overlays/Inventory/Inventory.tscn" id="13_t1k8j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5o7o6"]
+resource_local_to_scene = true
+shader = ExtResource("4_a3tfq")
+shader_parameter/TRANSFORM = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0)
+shader_parameter/DEPTH = Vector2(0, 0)
+shader_parameter/REPEAT_X = true
+shader_parameter/REPEAT_Y = true
+shader_parameter/FLIP = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wtbxb"]
+resource_local_to_scene = true
+shader = ExtResource("4_a3tfq")
+shader_parameter/TRANSFORM = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0)
+shader_parameter/DEPTH = Vector2(0, 0)
+shader_parameter/REPEAT_X = true
+shader_parameter/REPEAT_Y = true
+shader_parameter/FLIP = false
+
+[sub_resource type="Gradient" id="Gradient_0qna6"]
+offsets = PackedFloat32Array(0, 0.48, 0.5, 0.52, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_28eaf"]
+gradient = SubResource("Gradient_0qna6")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hrbij"]
+viewport_path = NodePath("TilemapVP")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qr1vw"]
+resource_local_to_scene = true
+shader = ExtResource("5_p37gu")
+shader_parameter/distortion = 1.0
+shader_parameter/radius = 1.0
+shader_parameter/use_tex_alpha = false
+shader_parameter/alpha = 1.0
+shader_parameter/crop = 1.0
+shader_parameter/shade = true
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7aphp"]
+viewport_path = NodePath("ObjectsVP")
+
+[sub_resource type="Shader" id="1"]
+code = "shader_type canvas_item;
+
+uniform float vignette_intensity = 0.4;
+uniform float vignette_opacity : hint_range(0.0, 1.0) = 0.5;
+uniform vec4 vignette_rgb : source_color = vec4(0.0, 0.0, 0.0, 1.0);
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_nearest, repeat_disable;
+
+
+float vignette(vec2 uv)
+{
+	uv *= 1.0 - uv.xy;
+	float vignette = uv.x * uv.y * 15.0;
+	return pow(vignette, vignette_intensity * vignette_opacity);
+}
+
+void fragment()
+{
+	vec4 colour = texture(SCREEN_TEXTURE, SCREEN_UV);
+	vec4 text = texture(TEXTURE, UV);
+
+	text.rgba *= vignette_rgb.rgba;
+	text.rgba *= (1.0 - vignette(UV));
+
+	//COLOR = vec4(colour.rgb - text.rgb, text.a);
+	COLOR = vec4(colour.rgb * text.rgb, text.a);
+
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xl4ww"]
+resource_local_to_scene = true
+shader = SubResource("1")
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
+
+[node name="WorldScene" type="Node"]
+script = ExtResource("1_2wfk6")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 854.0
+offset_bottom = 480.0
+color = Color(0.616415, 0.0672133, 0.379767, 1)
+
+[node name="Mode7_Sky" parent="Background" instance=ExtResource("2_6plfh")]
+material = SubResource("ShaderMaterial_5o7o6")
+position = Vector2(422, 107)
+scale = Vector2(4, 2)
+texture = ExtResource("4_b3bqq")
+
+[node name="Mode7_Ground" parent="Background" instance=ExtResource("2_6plfh")]
+material = SubResource("ShaderMaterial_wtbxb")
+position = Vector2(427, 530)
+scale = Vector2(4, 2)
+texture = ExtResource("5_r810o")
+
+[node name="GradientLine" type="Sprite2D" parent="Background"]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(0, 36)
+rotation = 1.5708
+texture = SubResource("GradientTexture1D_28eaf")
+centered = false
+offset = Vector2(120, -854)
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 854)
+
+[node name="DEBUGTilemapDisplay" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.572549)
+z_index = 16
+texture = SubResource("ViewportTexture_hrbij")
+centered = false
+
+[node name="SphereWorld" type="Node2D" parent="."]
+position = Vector2(-376, 90)
+scale = Vector2(2, 2)
+
+[node name="SphereMap" parent="SphereWorld" instance=ExtResource("3_88f1j")]
+material = SubResource("ShaderMaterial_qr1vw")
+offset_left = 200.0
+offset_top = 40.0
+offset_right = 600.0
+offset_bottom = 440.0
+
+[node name="ObjectsLayer" type="Sprite2D" parent="SphereWorld"]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(400, 240)
+scale = Vector2(1.41, 1.41)
+texture = SubResource("ViewportTexture_7aphp")
+
+[node name="TilemapVP" type="SubViewport" parent="."]
+transparent_bg = true
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="TilemapVP"]
+offset = Vector2(0, 100)
+process_callback = 0
+
+[node name="TilePlayer" parent="TilemapVP" instance=ExtResource("8_j1e43")]
+
+[node name="WorldTilemap" parent="TilemapVP" instance=ExtResource("8_qlpbm")]
+
+[node name="ObjectsVP" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="World3DRender" parent="ObjectsVP" instance=ExtResource("7_u1gqm")]
+
+[node name="DistortedSmokeLayer" parent="." instance=ExtResource("7_mr3de")]
+visible = false
+texture_filter = 1
+
+[node name="Vignette" parent="." instance=ExtResource("11_gff5y")]
+visible = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_xl4ww")
+
+[node name="Inventory" parent="." instance=ExtResource("13_t1k8j")]
+position = Vector2(427, 240)
+
+[connection signal="NearbyObject" from="TilemapVP/TilePlayer" to="." method="_on_tile_player_nearby_object"]

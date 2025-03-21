@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://gseexueqnjd4"]
+
+[ext_resource type="PackedScene" uid="uid://ultmn3xdswch" path="res://entities/TileChar/TileChar.tscn" id="1_n6jvu"]
+[ext_resource type="Script" uid="uid://jygnmjvqer2m" path="res://entities/TileEnemy/TileEnemy.gd" id="2_kkque"]
+[ext_resource type="PackedScene" uid="uid://cga0gbap1aupl" path="res://entities/StateMachine/StateMachine.tscn" id="3_ieix2"]
+[ext_resource type="Script" uid="uid://jjv1dwfl5kw0" path="res://entities/TileEnemy/Inactive.gd" id="4_0iqp6"]
+[ext_resource type="Script" uid="uid://dvergfurhdwal" path="res://entities/TileEnemy/Death.gd" id="5_dd1qv"]
+
+[node name="TileEnemy" instance=ExtResource("1_n6jvu")]
+script = ExtResource("2_kkque")
+ObjectModel = null
+
+[node name="StateMachine" parent="." index="2" instance=ExtResource("3_ieix2")]
+InitialState = NodePath("Inactive")
+
+[node name="Inactive" type="Node" parent="StateMachine" index="0"]
+script = ExtResource("4_0iqp6")
+
+[node name="Death" type="Node" parent="StateMachine" index="1" groups=["TileEnemy"]]
+script = ExtResource("5_dd1qv")

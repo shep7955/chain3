@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu357500ynv34"]
+
+[ext_resource type="PackedScene" uid="uid://djbq115yr5d3e" path="res://effects/Rain/Rain.tscn" id="2_qil42"]
+
+[sub_resource type="Resource" id="Resource_dxtd2"]
+metadata/__load_path__ = "res://maps/MovementTesting/MovementTesting.tscn"
+
+[node name="RainTest" type="Node3D"]
+
+[node name="MovementTesting" parent="."]
+
+[node name="Rain" parent="." instance=ExtResource("2_qil42")]

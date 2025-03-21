@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://m1ynf7mnbtqy"]
+
+[ext_resource type="Script" uid="uid://c0ujm4f2771oh" path="res://scenes/NewSphereMovement/new_sphere_movement.gd" id="1_n88po"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_kdthp"]
+radius = 6.5
+height = 13.0
+
+[sub_resource type="Gradient" id="Gradient_yqrl6"]
+offsets = PackedFloat32Array(0.00558659, 1)
+colors = PackedColorArray(0.270213, 0.675923, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h36cp"]
+gradient = SubResource("Gradient_yqrl6")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fqbf3"]
+albedo_texture = SubResource("GradientTexture2D_h36cp")
+uv1_scale = Vector3(21.38, 21.38, 21.38)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kh677"]
+
+[sub_resource type="Sky" id="Sky_qe0lc"]
+sky_material = SubResource("ProceduralSkyMaterial_kh677")
+
+[sub_resource type="Environment" id="Environment_tq2hy"]
+background_mode = 2
+sky = SubResource("Sky_qe0lc")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_db3s2"]
+
+[node name="NewSphereMovement" type="Node3D"]
+script = ExtResource("1_n88po")
+
+[node name="Sphere" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_kdthp")
+surface_material_override/0 = SubResource("StandardMaterial3D_fqbf3")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.2711)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tq2hy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.75679, 0.360131, -0.545504, 0, 0.83454, 0.550947, 0.653658, -0.416951, 0.631572, 0, -3.39911, 12.5652)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.92106)
+mesh = SubResource("CapsuleMesh_db3s2")
+skeleton = NodePath("../Node3D")

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://by63pqqykew8c"]
+
+[ext_resource type="Script" uid="uid://cfxjcwpf3sdeq" path="res://scenes/LoadingScene/LoadingScene.gd" id="1_g2p0c"]
+[ext_resource type="Environment" path="res://scenes/MaterialLoader/PitchBlack.tres" id="2_5n64x"]
+[ext_resource type="Texture2D" uid="uid://ebdfefykeefu" path="res://textures/NowLoading.png" id="2_mlrb6"]
+[ext_resource type="PackedScene" uid="uid://cbxp6cxd2ma2r" path="res://scenes/MaterialLoader/MaterialLoader.tscn" id="2_oi88y"]
+
+[node name="LoadingScene" type="Node2D"]
+script = ExtResource("1_g2p0c")
+
+[node name="MaterialLayer" type="CanvasLayer" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="MaterialLayer"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="MaterialLayer"]
+environment = ExtResource("2_5n64x")
+
+[node name="MaterialLoader" parent="MaterialLayer" instance=ExtResource("2_oi88y")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.43665, -5.82797)
+
+[node name="LoadingIcons" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="NowLoading" type="Sprite2D" parent="LoadingIcons"]
+modulate = Color(0.419608, 1, 0.419608, 1)
+texture = ExtResource("2_mlrb6")
+offset = Vector2(427, 300)
+
+[connection signal="MaterialsLoaded" from="MaterialLayer/MaterialLoader" to="." method="ChangeToScene"]

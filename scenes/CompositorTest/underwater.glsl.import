@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://f62dm3m3jrl4"
+path="res://.godot/imported/underwater.glsl-0f7a613e19aa8a268ec646c7b6d16710.res"
+
+[deps]
+
+source_file="res://scenes/CompositorTest/underwater.glsl"
+dest_files=["res://.godot/imported/underwater.glsl-0f7a613e19aa8a268ec646c7b6d16710.res"]
+
+[params]
+

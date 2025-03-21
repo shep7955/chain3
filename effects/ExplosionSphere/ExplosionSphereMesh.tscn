@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsd4siw36r8aa"]
+
+[ext_resource type="Shader" uid="uid://doi86f4rkgsex" path="res://shaders/psx_unlit_transparent.gdshader" id="1_f4ts8"]
+[ext_resource type="Texture2D" uid="uid://bbkyjd1o4h2jm" path="res://effects/ExplosionSphere/ExplosionSphere.png" id="2_y30wb"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_125g0"]
+radial_segments = 12
+rings = 8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_is0n6"]
+render_priority = 0
+shader = ExtResource("1_f4ts8")
+shader_parameter/precision_multiplier = 1.0
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/albedoTex = ExtResource("2_y30wb")
+shader_parameter/uv_scale = Vector2(3, 2)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_pan_velocity = Vector2(0, 1)
+
+[node name="ExplosionSphereMesh" type="MeshInstance3D"]
+mesh = SubResource("SphereMesh_125g0")
+surface_material_override/0 = SubResource("ShaderMaterial_is0n6")
